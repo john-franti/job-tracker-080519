@@ -1,6 +1,8 @@
 import firebase from "firebase";
+import API_KEY from './env.js'
+
 var config = {
-  apiKey: "AIzaSyCvyyadO6ewbdaxh-De3xSuY0ga4MOJ6-Q",
+  apiKey: API_KEY,
   authDomain: "job-tracker-080519.firebaseapp.com",
   databaseURL: "https://job-tracker-080519.firebaseio.com",
   projectId: "job-tracker-080519",
