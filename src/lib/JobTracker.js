@@ -1,3 +1,3 @@
-import IFirebase from './src/db'
+import IFirebase from './src/IFirebase'
 
 export default class JobTracker {}
