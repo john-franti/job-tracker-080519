@@ -14,7 +14,9 @@ export default class JobTracker {
 
   // Create a new user, needs 3 params, automatically logs you in
   static createNewUser = (username, email, password) => {
-    return IFirebaseUser.createUser(new User(username, email, password)).then(this.login(username, password));
+    return IFirebaseUser.createUser(new User(username, email, password)).then(
+      this.login(username, password)
+    );
   };
 
   // Log in as a user
@@ -26,7 +28,8 @@ export default class JobTracker {
   static getCurrentUser = username => IFirebaseUser.getUserByUsername(username);
 
   // Recover jobs for a user by username
-  static getUserJobs = username => IFirebaseJob.getJobsByUsername(username);
+  // NOT NEEDED, JOBS ARE NESTED WIHTIN USER jobs KEY
+  // static getUserJobs = username => IFirebaseJob.getJobsByUsername(username);
 
   // Add a job to a user
   static saveJob = (url, title, external_job_id = "") => {

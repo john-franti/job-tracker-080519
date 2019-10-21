@@ -12,16 +12,17 @@ export default class IFirebaseJob {
       .ref(`Users/${localStorage.username}/jobs/${newDataKey}`)
       .set(job);
   };
-  static getJobsByUsername = () => {
-    return fire
-      .database()
-      .ref(`Users/${localStorage.username}/jobs`)
-      .once("value");
-  };
-  static getUserJobByKey = (key) => {
-    return fire
-      .database()
-      .ref(`Users/${localStorage.username}/jobs/${key}`)
-      .once("value");
-  };
+  // NOT NEEDED
+  //   static getJobsByUsername = () => {
+  //     return fire
+  //       .database()
+  //       .ref(`Users/${localStorage.username}/jobs`)
+  //       .once("value");
+  //   };
+  //   static getUserJobByKey = (key) => {
+  //     return fire
+  //       .database()
+  //       .ref(`Users/${localStorage.username}/jobs/${key}`)
+  //       .once("value");
+  //   };
 }
