@@ -20,4 +20,19 @@ export default class IFirebaseUser {
       .ref(`Users/${username}`)
       .once("value");
   };
+  static loginAsUser = (username, password) => {
+    return fire
+      .database()
+      .ref(`Users/${username}`)
+      .once("value")
+      .then(resp => resp.toJSON())
+      .then(user => {
+        if (user.password === password) {
+          localStorage.setItem("username", user.username)
+        } else {
+          localStorage.removeItem("username");
+        };
+        console.log(localStorage)
+      });
+  };
 }

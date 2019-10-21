@@ -1,5 +1,7 @@
 import IFirebaseUser from "./src/interfaces/IFirebaseUser";
 import User from "./src/User";
+import IFirebaseJob from "./src/interfaces/IFirebaseJob";
+import Job from "./src/Job";
 
 // The JobTracker class contains a series of methods, each of which
 // returns a Promise. They should be used in standard async fashion
@@ -15,6 +17,19 @@ export default class JobTracker {
     return IFirebaseUser.createUser(new User(username, email, password));
   };
 
+  // Log in as a user
+  // on success sets username in localStorage
+  // on failure removes username key from localStorage
+  static login = (u, p) => IFirebaseUser.loginAsUser(u, p);
+
   // Recover a user by username
-  static findUser = username => IFirebaseUser.getUserByUsername(username);
+  static getCurrentUser = username => IFirebaseUser.getUserByUsername(username);
+
+  // Recover jobs for a user by username
+  static getUserJobs = username => IFirebaseJob.getJobsByUsername(username);
+
+  // Add a job to a user
+  static saveJob = (url, title, external_job_id = "") => {
+    IFirebaseJob.addJob(new Job(url, title, external_job_id));
+  };
 }
