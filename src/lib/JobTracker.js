@@ -12,9 +12,9 @@ export default class JobTracker {
   // Get a master list of all users (DO NOT USE, ADMIN and TESTING ONLY)
   static getAllUsers = () => IFirebaseUser.getUsers();
 
-  // Create a new user, needs 3 params
-  static saveNewUser = (username, email, password) => {
-    return IFirebaseUser.createUser(new User(username, email, password));
+  // Create a new user, needs 3 params, automatically logs you in
+  static createNewUser = (username, email, password) => {
+    return IFirebaseUser.createUser(new User(username, email, password)).then(this.login(username, password));
   };
 
   // Log in as a user
