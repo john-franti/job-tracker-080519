@@ -1,4 +1,4 @@
-import fire from "../../fire";
+import fire from "../../../fire";
 
 export default class IFirebaseUser {
   //USER Methods
