@@ -4,9 +4,20 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>This is Login!</h1>
-            </div>
+            <form>
+                <input 
+                    value="username"
+                />
+                <input 
+                    value="password"
+                />
+                <input 
+                    value="password"
+                />
+            </form>
+            // <div>
+            //     <h1>This is Login!</h1>
+            // </div>
         )
     }
     

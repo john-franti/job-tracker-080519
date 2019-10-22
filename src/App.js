@@ -3,28 +3,36 @@ import JobTracker from "./lib/JobTracker";
 import "./App.css";
 import Login from "./components/Login";
 import HomePage from "./containers/HomePage";
+import Job from "./lib/src/Job";
 
 class App extends React.Component {
   state = {
-    user: {}
+    user: {},
+    users: []
   };
 
   // This is set up to default drop all users into state. It is a basic test to confirm
   // interaction. Change it before deployment.
   // Note that Firebase Promises use the method toJSON(), instead of .json()
   componentDidMount() {
+    JobTracker.login("admin", "1234");
     JobTracker.getCurrentUser(localStorage.username)
       .then(resp => resp.toJSON())
       .then(data => this.setState({ user: data }));
-    // JobTracker.login("admin", "1234");
+
+    JobTracker.getAllUsers()
+      .then(response => response.toJSON())
+      .then(users => this.setState({users: users}));
     // JobTracker.saveJob("www.exampleJobs.com/jkdshfgkjds", "Senior Developer", "fdg7fdg68d7f6g")
   }
 
   render() {
     return (
       <div className="App">
-        <Login />
-        <HomePage />
+        { !this.state.user ? 
+          <Login /> : 
+          <HomePage user={this.state.users[localStorage.getItem("username")]} /> 
+        }
       </div>
     );
   }
