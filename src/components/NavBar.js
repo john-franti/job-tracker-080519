@@ -1,10 +1,21 @@
 import React from 'react';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 const NavBar = (props) => {
     console.log(props);
     return (
         <div>
-            <h1>This is my Nav Bar!</h1>
+                 <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/homepage">homepage</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">DashBoard</Link>
+        </li>
+      </ul>
         </div>
     )
 }
