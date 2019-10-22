@@ -38,7 +38,7 @@ export default class JobTracker {
   };
 
   // This method adds a new Note to a job.
-  static addNote = (content, jobId) => {
-    IFirebaseJob.addNote(new Note(content), jobId);
+  static addNote = (content, jobKey) => {
+    IFirebaseJob.addNote(new Note(content), jobKey);
   };
 }
