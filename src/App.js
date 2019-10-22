@@ -3,6 +3,7 @@ import JobTracker from "./lib/JobTracker";
 import "./App.css";
 import Login from "./components/Login";
 import HomePage from "./containers/HomePage";
+import NavBar from "./components/NavBar"
 import Job from "./lib/src/Job";
 
 class App extends React.Component {
@@ -29,8 +30,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+          <NavBar />
         { !this.state.user ? 
           <Login /> : 
+         
           <HomePage user={this.state.users[localStorage.getItem("username")]} /> 
         }
       </div>
