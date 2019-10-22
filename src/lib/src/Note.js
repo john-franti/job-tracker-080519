@@ -1,3 +1,5 @@
 export default class Note {
-    content = "";
+  constructor(content) {
+    this.content = content;
+  }
 }

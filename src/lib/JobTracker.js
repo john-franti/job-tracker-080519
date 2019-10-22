@@ -2,6 +2,7 @@ import IFirebaseUser from "./src/interfaces/IFirebaseUser";
 import User from "./src/User";
 import IFirebaseJob from "./src/interfaces/IFirebaseJob";
 import Job from "./src/Job";
+import Note from  './src/Note'
 
 // The JobTracker class contains a series of methods, each of which
 // returns a Promise. They should be used in standard async fashion
@@ -34,5 +35,10 @@ export default class JobTracker {
   // Add a job to a user
   static saveJob = (url, title, external_job_id = "") => {
     IFirebaseJob.addJob(new Job(url, title, external_job_id));
+  };
+
+  // This method adds a new Note to a job.
+  static addNote = (content, jobId) => {
+    IFirebaseJob.addNote(new Note(content), jobId);
   };
 }
