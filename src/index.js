@@ -5,14 +5,12 @@ import App from './App';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import DashBoard from './containers/DashBoard';
-import NavBar from "./components/NavBar"
 
 
 const routing = (
     <Router >
         <div>
-
-            <Route path="/" component={NavBar} />
+            <Route path="/" component={App} />
             <Route path="/homepage" component={HomePage} />
             <Route path="/dashboard" component={DashBoard} />
         </div>

@@ -36,7 +36,6 @@ class App extends React.Component {
           <NavBar />
         { !this.state.user ? 
           <Login /> : 
-         
           <HomePage user={this.state.users[localStorage.getItem("username")]} /> 
         }
       </div>
