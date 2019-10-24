@@ -6,14 +6,13 @@ import { Link } from 'react-router-dom';
 class HomePage extends React.Component {
 
     render() {
-        console.log(this.props);
         return (
             <div>
               
                 <h1>This is the HOMEPAGE!</h1>
           
                 <Link to="/dashboard">
-                    <DashBoard />
+                    <DashBoard  user={this.props.user}/>
                 </Link>
             </div>
         )
