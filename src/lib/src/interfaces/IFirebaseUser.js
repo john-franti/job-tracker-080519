@@ -28,11 +28,11 @@ export default class IFirebaseUser {
       .then(resp => resp.toJSON())
       .then(user => {
         if (user.password === password) {
-          localStorage.setItem("username", user.username)
+          localStorage.setItem("username", user.username);
         } else {
           localStorage.removeItem("username");
-        };
-        console.log(localStorage)
+        }
+        console.log(localStorage);
       });
   };
 }

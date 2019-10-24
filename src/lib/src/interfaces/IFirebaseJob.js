@@ -10,7 +10,7 @@ export default class IFirebaseJob {
     fire
       .database()
       .ref(`Users/${localStorage.username}/jobs/${newJobKey}`)
-      .set({...job, id:newJobKey});
+      .set({ ...job, id: newJobKey });
   };
 
   static addNote = (note, jobId) => {
@@ -21,6 +21,6 @@ export default class IFirebaseJob {
     fire
       .database()
       .ref(`Users/${localStorage.username}/jobs/${jobId}/notes/${newNoteKey}`)
-      .set({...note, id:newNoteKey});
+      .set({ ...note, id: newNoteKey });
   };
 }
