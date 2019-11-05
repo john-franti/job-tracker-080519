@@ -1,21 +1,16 @@
 import React from 'react';
 
 const JobCard = (props) => {
-   console.log(props)
-
+    
+    console.log(props)
     console.log(props.user.jobs);
     let jobKey = props.job
     console.log(jobKey);
-let job = props.user.jobs[jobKey]
+    let job = props.user.jobs[jobKey]
     console.log(job)
-
-
-
-    
 
     return (
         <div>
-            <h1>Job Card!</h1>
             <ul>
                 <li>
                     <div>{job.title}</div>
