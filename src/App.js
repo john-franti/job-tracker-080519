@@ -4,6 +4,7 @@ import "./App.css";
 import Login from "./components/Login";
 import HomePage from "./containers/HomePage";
 import Job from "./lib/src/Job";
+import DashBoard from "./containers/DashBoard";
 
 class App extends React.Component {
   state = {
@@ -24,14 +25,19 @@ class App extends React.Component {
       .then(response => response.toJSON())
       .then(users => this.setState({users: users}));
     // JobTracker.saveJob("www.exampleJobs.com/jkdshfgkjds", "Senior Developer", "fdg7fdg68d7f6g")
+
+  
+
   }
+
+  // divide repsonse into a user object and a jobs object
 
   render() {
     return (
       <div className="App">
         { !this.state.user ? 
           <Login /> : 
-          <HomePage user={this.state.users[localStorage.getItem("username")]} /> 
+          <DashBoard user={this.state.users[localStorage.getItem("username")]} /> 
         }
       </div>
     );
